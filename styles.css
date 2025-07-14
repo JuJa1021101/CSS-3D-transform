@@ -1,0 +1,163 @@
+:root {
+    --primary-color: #165DFF;
+    --secondary-color: #FF7D00;
+    --dark-color: #1E293B;
+    --light-color: #F8FAFC;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    background: linear-gradient(135deg, var(--dark-color) 0%, #0F172A 100%);
+    min-height: 100vh;
+    color: var(--light-color);
+}
+
+.gallery-container {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1200px;
+}
+
+.carousel {
+    position: relative;
+    width: 250px;
+    height: 350px;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.carousel-item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+
+.carousel-item:hover img {
+    transform: scale(1.08);
+}
+
+/* 图片位置计算 */
+.carousel-item:nth-child(1) { transform: rotateY(0deg) translateZ(320px); }
+.carousel-item:nth-child(2) { transform: rotateY(45deg) translateZ(320px); }
+.carousel-item:nth-child(3) { transform: rotateY(90deg) translateZ(320px); }
+.carousel-item:nth-child(4) { transform: rotateY(135deg) translateZ(320px); }
+.carousel-item:nth-child(5) { transform: rotateY(180deg) translateZ(320px); }
+.carousel-item:nth-child(6) { transform: rotateY(225deg) translateZ(320px); }
+.carousel-item:nth-child(7) { transform: rotateY(270deg) translateZ(320px); }
+.carousel-item:nth-child(8) { transform: rotateY(315deg) translateZ(320px); }
+
+/* 鼠标悬停效果 */
+.carousel-item:hover {
+    box-shadow: 0 0 35px rgba(22, 93, 255, 0.7);
+    transform: translateZ(340px) scale(1.05);
+    z-index: 10;
+}
+
+/* 导航按钮 */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(22, 93, 255, 0.8);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 20;
+    transition: all 0.3s ease;
+    opacity: 0.9;
+}
+
+.nav-btn:hover {
+    background: rgba(22, 93, 255, 1);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 0 15px rgba(22, 93, 255, 0.7);
+    opacity: 1;
+}
+
+.nav-btn.prev {
+    left: 10%;
+}
+
+.nav-btn.next {
+    right: 10%;
+}
+
+/* 指示器 */
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(248, 250, 252, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    transform: scale(0.9);
+}
+
+.indicator.active {
+    background: rgba(22, 93, 255, 1);
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(22, 93, 255, 0.7);
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.8s ease forwards;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .gallery-container {
+        height: 400px;
+    }
+    
+    .carousel {
+        width: 200px;
+        height: 300px;
+    }
+    
+    .carousel-item:nth-child(n) {
+        transform: rotateY(calc(var(--i) * 45deg)) translateZ(260px);
+    }
+    
+    .nav-btn {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .nav-btn.prev {
+        left: 5%;
+    }
+    
+    .nav-btn.next {
+        right: 5%;
+    }
+}    

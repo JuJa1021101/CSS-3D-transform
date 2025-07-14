@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>创意3D画廊</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body class="font-inter bg-gradient-to-br from-dark to-dark/80 min-h-screen text-light">
+    <header class="py-8 px-4 md:px-8">
+        <div class="max-w-7xl mx-auto">
+            <h1 class="text-[clamp(1.8rem,4vw,3rem)] font-bold text-center text-white drop-shadow-lg">创意3D画廊</h1>
+            <p class="text-center text-gray-300 mt-2 max-w-2xl mx-auto">探索这个使用CSS 3D变换创建的沉浸式画廊，体验独特的3D视觉效果</p>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-12">
+        <div class="gallery-container perspective-1200">
+            <div id="carousel" class="carousel preserve-3d">
+                <div class="carousel-item" data-index="0">
+                    <img src="https://picsum.photos/id/1018/600/800" alt="风景照片1">
+                </div>
+                <div class="carousel-item" data-index="1">
+                    <img src="https://picsum.photos/id/1015/600/800" alt="风景照片2">
+                </div>
+                <div class="carousel-item" data-index="2">
+                    <img src="https://picsum.photos/id/1019/600/800" alt="风景照片3">
+                </div>
+                <div class="carousel-item" data-index="3">
+                    <img src="https://picsum.photos/id/1039/600/800" alt="风景照片4">
+                </div>
+                <div class="carousel-item" data-index="4">
+                    <img src="https://picsum.photos/id/1043/600/800" alt="风景照片5">
+                </div>
+                <div class="carousel-item" data-index="5">
+                    <img src="https://picsum.photos/id/1045/600/800" alt="风景照片6">
+                </div>
+                <div class="carousel-item" data-index="6">
+                    <img src="https://picsum.photos/id/1059/600/800" alt="风景照片7">
+                </div>
+                <div class="carousel-item" data-index="7">
+                    <img src="https://picsum.photos/id/1061/600/800" alt="风景照片8">
+                </div>
+            </div>
+            
+            <button id="prevBtn" class="nav-btn prev animate-fade-in">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button id="nextBtn" class="nav-btn next animate-fade-in">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+        
+        <div class="gallery-indicators flex justify-center gap-3 mt-8" id="indicators"></div>
+        
+        <div class="gallery-info text-center mt-12 px-4">
+            <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-white mb-4">沉浸式3D体验</h2>
+            <p class="text-gray-300 max-w-2xl mx-auto text-lg">
+                这个创意画廊利用CSS 3D变换技术，将图片排列在一个虚拟的圆柱体表面，创造出令人惊叹的3D视觉效果。
+                鼠标悬停在任意图片上，画廊会自动旋转使该图片居中显示，增强了交互体验和沉浸感。
+            </p>
+        </div>
+    </main>
+
+    <footer class="py-8 bg-dark/70 mt-16">
+        <div class="max-w-7xl mx-auto px-4 text-center text-gray-400">
+            <p>© 2025 创意3D画廊 | 使用HTML、CSS和JavaScript构建</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>    
